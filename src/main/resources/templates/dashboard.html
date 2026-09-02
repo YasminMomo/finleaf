@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Cutive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <div class="container">
+        <span class="transaction-message" th:if="${message}" th:utext="'<i class=\'fa-solid fa-circle-check\'></i> ' + ${message}"></span>
+
+        <div class="dashboard-container">
+            <div class="nav-container">
+                <span class="nav-bar">
+                    <ul>
+                        <li>
+                            <a th:href="@{/dashboard}"><i class="fa-solid fa-house dashboard-icon">
+                                <p class="dashboard">Dashboard</p>
+                            </i></a>
+                        </li>
+                        <li>
+                            <a th:href="@{/cashin}"><i class="fa-solid fa-circle-plus cashin-icon">
+                                <p class="cashin">Cash In</p>
+                            </i></a>
+                        </li>
+                        <li>
+                            <a th:href="@{/cashtransfer}"><i class="fa-solid fa-circle-arrow-up cashtransfer-icon">
+                                <p class="cashtransfer">Cash Transfer</p>
+                            </i></a>
+                        </li>
+                        <li>
+                            <a th:href="@{/transactions}"><i class="fa-solid fa-book-open transactions-icon">
+                                <p class="transactionlogs">Transactions</p>
+                            </i></a>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+
+            <div class="dashboard-panel">
+                <div class="dashboard-panel-left">
+                    <span class="logo">
+                        <img th:src="@{/assets/logo.png}" alt="logo">
+                        <p>Dashboard</p>
+                    </span>
+                    <div class="dashboard-text">
+                        <h2>Welcome, <span class="highlight" th:text="${user.firstName}"></span>!</h2>
+                        <h6>What would you like to do today?</h6>
+                    </div>
+                    <div class="dashboard-tray">
+                        <div class="balance">
+                            <h6>Current Balance</h6>
+                            <h2>₱ <span class="balance-value" th:text="${#numbers.formatDecimal(user.balance, 1, 2)}"></span></h2>
+                        </div>
+                        <div class="dashboard-actions">
+                            <button class="cashin-btn" th:onclick=|location.href='@{/cashin}'|>Cash In <i class="fa-solid fa-circle-plus"></i></button>
+                            <button class="transfercash-btn" th:onclick=|location.href='@{/cashtransfer}'|>Send Cash <i class="fa-solid fa-circle-arrow-up"></i></button>
+                        </div>
+                    </div>
+                    <div class="transaction-db-container">
+                        <span class="transaction-text">
+                            <h6>Transaction History</h6>
+                            <a th:href="@{/transactions}">View All</a>
+                        </span>
+                        <div class="transaction-db-panel">
+                            <span class="transaction-db-title">
+                                <p class="tdb-title-smaller">Date</p>
+                                <p class="tdb-title-larger">Description</p>
+                                <p class="tdb-title-smaller">Amount</p>
+                            </span>
+                            <div class="transaction-db-entry" th:each="transaction : ${transactions}">
+                                <p class="tdb-title-smaller" th:text="${transaction.date}"></p>
+                                <p class="tdb-title-larger" th:text="${transaction.type}"></p>
+                                <p class="tdb-title-smaller" th:classappend="${transaction.amount < 0 ? 'negative' : (transaction.amount > 0 ? 'positive' : '')}" th:text="${transaction.amount < 0 ? '-₱' + #numbers.formatDecimal(-transaction.amount, 1, 2) : '₱' + #numbers.formatDecimal(transaction.amount, 1, 2)}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-panel-right">
+                    <h4>My Card</h4>
+                    <div class="card">
+                        <span class="card-logo">
+                            <img th:src="@{/assets/logo.png}" alt="logo">
+                            <p>Finleaf</p>
+                        </span>
+                        <div class="card-details">
+                            <h6><span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></h6>
+                            <p><span th:text="${user.mobileNumber}"></span></p>
+                        </div>
+                        <span class="card-btn">
+                            <button class="logout-btn" th:onclick=|location.href='@{/login}'|>Sign Out</button>
+                        </span>
+                    </div>
+                    <div class="payments">
+                        <h4>Upcoming Payments</h4>
+                        <div class="payment-sample">
+                            <span><i class="fa-solid fa-lightbulb"></i></span>
+                            <div class="payment-sample-entry">
+                                <h6>Electricity</h6>
+                                <p>Paid Successfully</p>
+                            </div>
+                            <h6>₱1,000.00</h6>
+                        </div>
+                        <div class="payment-sample">
+                            <span><i class="fa-solid fa-car"></i></span>
+                            <div class="payment-sample-entry">
+                                <h6>Insurance</h6>
+                                <p>Paid Successfully</p>
+                            </div>
+                            <h6>₱2,000.00</h6>
+                        </div>
+                        <div class="payment-sample">
+                            <span><i class="fa-brands fa-youtube"></i></span>
+                            <div class="payment-sample-entry">
+                                <h6>Subscription</h6>
+                                <h5>Pending</h5>
+                            </div>
+                            <h6>₱500.00</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

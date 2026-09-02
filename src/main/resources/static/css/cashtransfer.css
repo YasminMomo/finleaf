@@ -1,0 +1,154 @@
+:root {
+    --primary-color: #FAF3DD;
+    --secondary-color: #242F40;
+    --accent-color-light: #63C132;
+    --accent-color-dark: #358600;
+    --header-font: "Cutive", serif;
+    --body-font: "Afacad Flux", sans-serif;
+}
+
+.cashtransfer-container {
+    min-height: 100dvh;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.cashtransfer-panel {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px 50px 20px;
+    gap: 30px;
+}
+
+.cashtransfer-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cashtransfer-text h6 {
+    font-size: 20px;
+}
+
+.cashtransfer-text h2 {
+    letter-spacing: 2px;
+}
+
+.cashtransfer-input-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.cashtransfer-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cashtransfer-form h6 {
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-self: baseline;
+}
+
+.cashtransfer-form form {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.cashtransfer-form label {
+    margin-top: 10px;
+}
+
+.cashtransfer-form input {
+    height: 45px;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cashtransfer-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cashtransfer-review {
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cashtransfer-review h2 {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.cashtransfer-review form {
+    width: 100%;
+}
+
+.cashtransfer-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cashtransfer-details h6 {
+    width: 100%;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.cashtransfer-details p {
+    width: 100%;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cashtransfer-details h5 {
+    width: 100%;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin: 2px 0;
+}

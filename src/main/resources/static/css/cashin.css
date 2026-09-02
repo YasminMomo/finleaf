@@ -1,0 +1,132 @@
+.cashin-container {
+    min-height: 100dvh;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.cashin-panel {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px 50px 20px;
+    gap: 30px;
+}
+
+.cashin-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.cashin-text h6 {
+    font-size: 20px;
+}
+
+.cashin-text h2 {
+    letter-spacing: 2px;
+}
+
+.cashin-input-container {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.cashin-form {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cashin-form form {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cashin-form input {
+    height: 45px;
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.cashin-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cashin-review {
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cashin-review h2 {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.cashin-review form {
+    width: 100%;
+}
+
+.cashin-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cashin-details h6 {
+    width: 100%;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.cashin-details p {
+    width: 100%;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cashin-details h5 {
+    width: 100%;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin: 2px 0;
+}

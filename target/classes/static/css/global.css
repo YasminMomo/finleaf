@@ -1,0 +1,212 @@
+:root {
+    --primary-color: #FAF3DD;
+    --secondary-color: #242F40;
+    --accent-color-light: #63C132;
+    --accent-color-dark: #358600;
+    --header-font: "Cutive", serif;
+    --body-font: "Afacad Flux", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.html {
+    height: 100%;
+}
+
+.body {
+    min-height: 100dvh;
+    overflow: hidden;
+}
+
+h2 {
+    font-family: var(--header-font);
+    font-size: 40px;
+}
+
+h6 {
+    font-family: var(--body-font);
+    line-height: 1;
+}
+
+.container {
+    min-height: 100dvh;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.highlight {
+    color: var(--accent-color-dark);
+}
+
+.bottom-frame {
+    background-color: var(--secondary-color);
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    border: 1px solid var(--primary-color);
+    border-top-right-radius: 30px;
+    box-shadow: 0 0 20px 3px var(--secondary-color);
+}
+
+.middle-frame-1 {
+    background-color: var(--accent-color-dark);
+    height: 50px;
+    margin: 50px 100px 0 0;
+    border: 1px solid #86FF48;
+    border-top-right-radius: 30px;
+    box-shadow: 0 0 30px 2px black;
+}
+
+.middle-frame-2 {
+    background-color: var(--accent-color-light);
+    height: 100%;
+    margin-right: 50px;
+    border: 1px solid #a2ff73;
+    border-top-right-radius: 30px;
+    box-shadow: 0 0 20px 3px var(--secondary-color);
+}
+
+.front-frame {
+    background-color: var(--primary-color);
+    height: 100%;
+    margin: 50px 50px 0 0;
+    border: 1px solid var(--primary-color);
+    border-top-right-radius: 30px;
+    box-shadow: 0 0 20px 3px var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-container {
+    min-height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar {
+    height: 70%;
+    width: 100%;
+    background-color: var(--secondary-color);
+    margin: 0 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-bar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    list-style: none;
+    font-size: 23px;
+}
+
+.nav-bar li {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-bar li i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    padding: 10px 22px;
+    border-radius: 500px;
+    transition: color 0.4s ease, border 0.5s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.nav-bar li i:hover {
+    cursor: pointer;
+    color: var(--accent-color-light);
+    border: 1px solid var(--accent-color-light);
+    box-shadow: 0 0 5px 1px var(--accent-color-light);
+    transform: translateY(-2px);
+}
+
+.dashboard,
+.cashin,
+.cashtransfer,
+.transactionlogs {
+    height: 35px;
+    width: 170px;
+    padding: 10px 30px;
+    position: absolute;
+    margin-left: 250px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--accent-color-dark);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 1px var(--accent-color-light);
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--accent-color-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dashboard-icon:hover .dashboard,
+.cashin-icon:hover .cashin,
+.cashtransfer-icon:hover .cashtransfer,
+.transactions-icon:hover .transactionlogs {
+    opacity: 1;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo p {
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.next-btn,
+.confirm-btn {
+    width: 100%;
+    height: 45px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    color: var(--primary-color);
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 30px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.next-btn:hover,
+.confirm-btn:hover {
+    cursor: pointer;
+    background-color: var(--accent-color-dark);
+    color: var(--primary-color);
+    box-shadow: 0 0 5px 1px var(--accent-color-light);
+    transform: translateY(-1px);
+}

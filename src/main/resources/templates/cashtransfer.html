@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Transfer</title>
+    <link rel="icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/cashtransfer.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Cutive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+</head>
+<body>
+    <div class="cashtransfer-container">
+        <div class="nav-container">
+            <span class="nav-bar">
+                <ul>
+                    <li>
+                        <a th:href="@{/dashboard}"><i class="fa-solid fa-house dashboard-icon">
+                            <p class="dashboard">Dashboard</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/cashin}"><i class="fa-solid fa-circle-plus cashin-icon">
+                            <p class="cashin">Cash In</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/cashtransfer}"><i class="fa-solid fa-circle-arrow-up cashtransfer-icon">
+                            <p class="cashtransfer">Cash Transfer</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/transactions}"><i class="fa-solid fa-book-open transactions-icon">
+                            <p class="transactionlogs">Transactions</p>
+                        </i></a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+
+        <div class="cashtransfer-panel">
+            <span class="logo">
+                <img th:src="@{/assets/logo.png}" alt="logo">
+                <p>Cash Transfer</p>
+            </span>
+            <div class="cashtransfer-text">
+                <h6>Send cash in a few taps</h6>
+                <h2>Enter your <span class="highlight">details</span></h2>
+            </div>
+            <div class="cashtransfer-input-container">
+                <div class="cashtransfer-form">
+                    <form th:action="@{/cashtransfer/review}" method="post">
+                        <div class="cashtransfer-input">
+                            <h6 th:text="'₱ ' + ${#numbers.formatDecimal(user.balance, 1, 2)}"></h6>
+                            <label for="mobileNumber">Mobile Number:</label>
+                            <input type="text" id="mobileNumber" name="mobileNumber" required>
+                        </div>
+                        <div class="cashtransfer-input">
+                            <label for="amount">Amount:</label>
+                            <input type="number" id="amount" name="amount" required>
+                        </div>
+                        <button type="submit" class="next-btn">Next</button>
+                    </form>
+                </div>
+                <div class="cashtransfer-review">
+                    <h2>Review <span class="highlight">Cash Transfer</span></h2>
+                    <div th:if="${receiver}" class="cashtransfer-details">
+                        <h6 th:text="${receiver.firstName + ' ' + receiver.lastName}"> </h6>
+                        <p th:text="${receiver.mobileNumber}"></p>
+                        <h5>Amount:</h5>
+                        <h5 th:text="'₱' + ${#numbers.formatDecimal(amount, 1, 2)}"></h5>
+                    </div>
+                    <form th:if="${receiver != null}" th:action="@{/cashtransfer}" method="post">
+                        <input type="hidden" name="mobileNumber" th:value="${mobileNumber}">
+                        <input type="hidden" name="amount" th:value="${amount}">
+                        <button type="submit" class="confirm-btn">Confirm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash In</title>
+    <link rel="icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/cashin.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Cutive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <div class="cashin-container">
+        <div class="nav-container">
+            <span class="nav-bar">
+                <ul>
+                    <li>
+                        <a th:href="@{/dashboard}"><i class="fa-solid fa-house dashboard-icon">
+                            <p class="dashboard">Dashboard</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/cashin}"><i class="fa-solid fa-circle-plus cashin-icon">
+                            <p class="cashin">Cash In</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/cashtransfer}"><i class="fa-solid fa-circle-arrow-up cashtransfer-icon">
+                            <p class="cashtransfer">Cash Transfer</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/transactions}"><i class="fa-solid fa-book-open transactions-icon">
+                            <p class="transactionlogs">Transactions</p>
+                        </i></a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+
+        <div class="cashin-panel">
+            <span class="logo">
+                <img th:src="@{/assets/logo.png}" alt="logo">
+                <p>Cash In</p>
+            </span>
+            <div class="cashin-text">
+                <h6>Add funds to your Finleaf account</h6>
+                <h2>Enter your <span class="highlight">details</span></h2>
+            </div>
+            <div class="cashin-input-container">
+                <div class="cashin-form">
+                    <form action="">
+                        <div class="cashin-input">
+                            <label for="amount">Amount: </label>
+                            <input type="number" id="amount" name="amount" required>
+                        </div>
+                        <button type="button" class="next-btn" onclick="showAmount()">Next</button>
+                    </form>
+                </div>
+                <div class="cashin-review">
+                    <h2>Review <span class="highlight">Cash In</span></h2>
+                    <div id="cashin-details" class="cashin-details" style="display: none">
+                        <h6 th:text="${user.firstName + ' ' + user.lastName}"> </h6>
+                        <p th:text="${user.mobileNumber}"></p>
+                        <h5>Amount:</h5>
+                        <h5 id="display-amount"></h5>
+                    </div>
+                    <form th:action="@{/cashin}" method="post">
+                        <input type="hidden" id="confirmAmount" name="amount">
+                        <button type="submit" id="confirm-btn" class="confirm-btn" style="opacity: 0">Confirm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function showAmount() {
+        const amount = document.getElementById("amount").value;
+
+        document.getElementById("display-amount").textContent =
+            "₱" + Number(amount).toLocaleString("en-PH", {
+                minimumFractionDigits: 2
+            });
+        document.getElementById("confirmAmount").value = amount;
+        document.getElementById("cashin-details").style.display = "block";
+        document.getElementById("confirm-btn").style.opacity = "1";
+    }
+</script>
+</html>

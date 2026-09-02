@@ -1,0 +1,361 @@
+.transaction-message {
+    min-width: 100%;
+    height: 50px;
+    background-color: var(--accent-color-light);
+    border: 1px solid var(--accent-color-dark);
+    color: var(--secondary-color);
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding: 30px 70px;
+    gap: 10px;
+}
+
+.dashboard-container {
+    min-height: 100dvh;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.dashboard-panel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 50px 30px 50px 20px;
+    gap: 50px;
+}
+
+.dashboard-panel-left {
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard-text {
+    margin-top: 50px;
+}
+
+.dashboard-text h2 {
+    font-size: 45px;
+}
+
+.dashboard-text h6 {
+    font-family: var(--body-font);
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.dashboard-tray {
+    height: 150px;
+    width: 100%;
+    background-color: var(--secondary-color);
+    margin: 20px 0;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.balance {
+    height: 100%;
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.balance h6 {
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.balance h2,
+.balance-value {
+    color: var(--primary-color);
+    font-size: 35px;
+}
+
+.dashboard-actions {
+    height: 100%;
+    width: 350px;
+    padding: 20px 30px 20px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: center;
+    gap: 13px;
+}
+
+.cashin-btn,
+.transfercash-btn {
+    height: 35px;
+    width: 200px;
+    background-color: var(--accent-color-light);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    color: var(--primary-color);
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.cashin-btn i,
+.transfercash-btn i {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.cashin-btn:hover,
+.transfercash-btn:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--accent-color-dark);
+    box-shadow: 0 0 5px 1px var(--accent-color-light);
+    transform: translateY(-1px);
+}
+
+.cashin-btn:hover i,
+.transfercash-btn:hover i {
+    color: var(--accent-color-dark);
+}
+
+.transaction-db-container {
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+}
+
+.transaction-text {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.transaction-text h6 {
+    font-family: var(--header-font);
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    letter-spacing: 0.8px;
+}
+
+.transaction-text a {
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.transaction-text a:hover {
+    color: var(--accent-color-dark);
+    text-shadow: var(--accent-color-light) 0 0 2px;
+}
+
+.transaction-db-panel {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.transaction-db-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.transaction-db-entry {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 30px;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.tdb-title-larger {
+    width: 100%;
+}
+
+.tdb-title-smaller {
+    width: 30%;
+}
+
+.positive{
+    color: var(--accent-color-dark);
+}
+
+.negative {
+    color: #860000;
+}
+
+.dashboard-panel-right {
+    min-height: 100%;
+    width: 50%;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    padding: 30px;
+}
+
+.dashboard-panel-right h4 {
+    font-family: var(--header-font);
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+}
+
+.card {
+    height: 180px;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.card-logo img {
+    height: 30px;
+}
+
+.card-logo p {
+    font-family: var(--header-font);
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.card-details h6 {
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.card-details p {
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.logout-btn {
+    height: 35px;
+    width: 150px;
+    background-color: #860000;
+    border: 1px solid var(--secondary-color);
+    border-radius: 50px;
+    color: var(--primary-color);
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 500;
+    transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.logout-btn:hover {
+    cursor: pointer;
+    background-color: #b82b2b;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 5px 1px #dd3d3d;
+    transform: translateY(-1px);
+}
+
+.payments {
+    height: 100%;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.payments h4 {
+    letter-spacing: 1px;
+}
+
+.payment-sample {
+    width: 100%;
+    margin: 5px 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.payment-sample span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-sample i {
+    font-size: 25px;
+}
+
+.payment-sample-entry {
+    font-family: var(--body-font);
+}
+
+.payment-sample-entry h6,
+.payment-sample h6 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.payment-sample-entry p {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--accent-color-dark);
+}
+
+
+.payment-sample-entry h5 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #860000;
+}

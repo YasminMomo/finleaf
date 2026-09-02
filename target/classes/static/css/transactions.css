@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #FAF3DD;
+    --secondary-color: #242F40;
+    --accent-color-light: #63C132;
+    --accent-color-dark: #358600;
+    --header-font: "Cutive", serif;
+    --body-font: "Afacad Flux", sans-serif;
+}
+
+.transaction-container {
+    min-height: 100dvh;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.transaction-panel {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px 50px 20px;
+}
+
+.title {
+    display: flex;
+    align-self: center;
+    margin: 50px 0;
+}
+
+.transaction-log {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 0 5px 1px var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.transaction-log-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 30px;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.tdb-title-larger {
+    width: 100%;
+}
+
+.tdb-title-smaller {
+    width: 30%;
+}
+
+.transaction-log-entry {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 30px;
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.positive{
+    color: var(--accent-color-dark);
+}
+
+.negative {
+    color: #860000;
+}

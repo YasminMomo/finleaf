@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="icon" th:href="@{/assets/logo.png}" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/transactions.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Cutive&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <div class="transaction-container">
+        <div class="nav-container">
+            <span class="nav-bar">
+                <ul>
+                    <li>
+                        <a th:href="@{/dashboard}"><i class="fa-solid fa-house dashboard-icon">
+                            <p class="dashboard">Dashboard</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/cashin}"><i class="fa-solid fa-circle-plus cashin-icon">
+                            <p class="cashin">Cash In</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/cashtransfer}"><i class="fa-solid fa-circle-arrow-up cashtransfer-icon">
+                            <p class="cashtransfer">Cash Transfer</p>
+                        </i></a>
+                    </li>
+                    <li>
+                        <a th:href="@{/transactions}"><i class="fa-solid fa-book-open transactions-icon">
+                            <p class="transactionlogs">Transactions</p>
+                        </i></a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+
+        <div class="transaction-panel">
+            <span class="logo">
+                <img th:src="@{/assets/logo.png}" alt="logo">
+                <p>Transactions</p>
+            </span>
+            <span class="title">
+                <h2>Your <span class="highlight">Transactions</span></h2>
+            </span>
+            <div class="transaction-log">
+                <span class="transaction-log-title">
+                    <p class="tdb-title-smaller">Date</p>
+                    <p class="tdb-title-smaller">Time</p>
+                    <p class="tdb-title-smaller">Transaction</p>
+                    <p class="tdb-title-larger">Description</p>
+                    <p class="tdb-title-smaller">Amount</p>
+                </span>
+                <div class="transaction-log-entry" th:each="transaction : ${transactions}">
+                    <p class="tdb-title-smaller" th:text="${transaction.date}"></p>
+                    <p class="tdb-title-smaller" th:text="${transaction.time}"></p>
+                    <p class="tdb-title-smaller" th:text="${transaction.type}"></p>
+                    <p class="tdb-title-larger" th:text="${transaction.details}"></p>
+                    <p class="tdb-title-smaller" th:classappend="${transaction.amount < 0 ? 'negative' : (transaction.amount > 0 ? 'positive' : '')}" th:text="${transaction.amount < 0 ? '-₱' + #numbers.formatDecimal(-transaction.amount, 1, 2) : '₱' + #numbers.formatDecimal(transaction.amount, 1, 2)}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
