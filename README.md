@@ -1,2 +1,2 @@
 # finleaf
-Banking Application
+Banking Website
